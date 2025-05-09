@@ -7,7 +7,7 @@
 |          **Name**         	|                                           **Meaning**                                           	|        **Value**       	|
 |:-------------------------:	|:-----------------------------------------------------------------------------------------------:	|:----------------------:	|
 |        GRACE_PERIOD       	|                       How much the validator waits before doing operations                      	|          5 min         	|
-|    ContractName_CLOSED    	|                    The contract has been closed, needs to be validated by TEE                   	|        Validated       	|
+|    ContractName_CLOSED    	|                    The contract has been closed, needs to be validated by TEE                   	|        Validated and Aggregated content     	|
 | ItemName_CLOSED_VALIDATED 	|                     The item "ItemName" has been validated by a TEE process                     	|        Validated       	|
 |      ItemName_QUEUED      	|        The item is being processed by the wallet owner of the one that posted the message       	|      Wallet Owner      	|
 |      ItemName_CLOSED      	|         The item was closed by the wallet owner, needs to append the output of the task         	| The output of the task 	|
@@ -36,4 +36,5 @@ An **Item** (identified by **ItemName**, x) is OPEN if:
 Validating a task:
 - pull **ItemName.SETUP**
 - run the validation part for the setup
-- 
+- check the output against the proposed output
+- if they match give the reward to the user; create a **x_CLOSED_VALIDATED** message on the task with the results
