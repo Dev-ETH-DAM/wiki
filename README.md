@@ -16,6 +16,8 @@
 |       ItemName.SETUP      	|                           The task that needs to be RAN for this item                           	|          JSON          	|
 |      ItemName.REWARD      	| The ammoun of *SomeCurrency* that will be sent to the wallet of the one that fullfils this Item 	|         Number         	|
 |      ItemName.MAX_RUN     	|                        How much we wait before making the task open again                       	|       In minutes       	|
+|      task_json_key     	|                        The key in the ItemName.SETUP JSON where the parameters for the Task are.                      	|       TASK_SETUP      	|
+|      validator_json_key     	|                        The key in the ItemName.SETUP JSON where the parameters for the Validator are.                      	|       VALIDATOR_SETUP      	|
 
 ## Business logic
 
@@ -38,3 +40,8 @@ Validating a task:
 - run the validation part for the setup
 - check the output against the proposed output
 - if they match give the reward to the user; create a **x_CLOSED_VALIDATED** message on the task with the results
+
+Intefaces in code:
+- The code Interface for ItemName can be found [here](./files/interfaces/task.py)
+- The code Validator Interface can be found [here](./files/interfaces/validator.py)
+
